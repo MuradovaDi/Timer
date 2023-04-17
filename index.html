@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dates counter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="form">
+            <div class="flex">
+                <div class="date-input">
+                    <label for="start">Start date</label><br>
+                    <input class="start" type="date" id="start" name="start" value="start-date">
+                </div>
+
+                <div class="date-input">
+                    <label for="end">End date</label><br>
+                    <input class="end" type="date" id="end" name="end" value="end-date" disabled>
+                </div>
+            </div>
+
+            <div class="flex preset">
+                <span class="preset__label">Preset:</span>
+                <button class="btn preset-week" type="submit">Week</button>
+                <button class="btn preset-month" type="submit">Month</button>
+            </div>
+
+            <div class="select-inputs">
+                <div class="flex select-input">
+                    <label for="days">Select the days of the week:</label>
+                    <select class="day-select" name="days" id="days">
+                        <option value="all">All days</option>
+                        <option value="weekdays">Weekdays</option>
+                        <option value="weekends">Weekends</option>
+                    </select>
+                </div>
+
+                <div class="flex select-input">
+                    <label for="dimension">Select the calculation dimension:</label>
+                    <select class="dimension-select" name="dimension" id="dimension">
+                        <option value="days">Days</option>
+                        <option value="hours">Hours</option>
+                        <option value="minutes">Minutes</option>
+                        <option value="seconds">Seconds</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="get-result flex">
+                <button class="btn count" type="submit">Count</button>
+                <p class="result">Result:</p>
+            </div>
+        </div>
+
+        <div>
+            <table class="table-results">
+                <tr>
+                  <th>Date range</th>
+                  <th>Result</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+<script src="./index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+body{
+    padding: 0;
+    margin: 0;
+    background: url(./img/2erXIUXCoKQCCojhM3qQPmqX59UM4Ft5CI0GkhMI.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: wheat;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper{
+    position: absolute;
+    padding-top: 100px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.form{
+    background-color: rgba(0, 0, 0, 0.75);
+    border: 1px solid wheat; 
+    border-radius: 70px;
+    padding: 15px 25px;
+    margin-bottom: 25px;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+input, select{
+    cursor: pointer;
+}
+
+.preset{
+    margin: 10px 0px;
+}
+
+.preset__label{
+    align-self: center;
+}
+
+.btn{
+    padding: 5px 10px;
+    background: linear-gradient(0deg, #DDEEFB -15.69%, #B8AEEC 127.45%);
+    border: none;
+    border-radius: 70px;
+    filter: drop-shadow(1px 1px 2px #B5C7E5);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.count{
+    font-weight: 600;
+    margin-top: 15px;
+    padding: 5px 25px;
+    background: linear-gradient(0deg, #f8fa6a -15.69%, #d5d819 127.45%);
+    filter: drop-shadow(1px 1px 2px #B5C7E5);
+}
+
+.select-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.select-input{
+    gap: 5px;
+}
+
+select{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+select option{
+    font-size: 16px;
+    max-height: fit-content;
+}
+
+.get-result{
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0px;
+}
+
+.result{
+    align-self: flex-start;
+}
+
+
+
+@media all and (min-width: 1060px) {
+    body, select, option, input, .btn{
+        font-size: 23px;
+    };
+}
+
+@media all and (min-width: 1600px) {
+    body, select, option, input, .btn{
+        font-size: 29px;
+    };
+}
