@@ -145,11 +145,7 @@ count.addEventListener('click', () => {
 result.textContent = `Result: ${durationBetweenDates()}`;
 storeResultInLocalStorage();
 
-if (table.rows.length > 1){
-  for (let i = table.rows.length; i = 1; i--) {
-    table.deleteRow(i);
-  };
-};
+
 
 renderHistoryTable();
 })
