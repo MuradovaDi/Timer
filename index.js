@@ -17,45 +17,41 @@ const HOUR_IN_MILLISECONDS = 60 * 60 * 1000;
 const MINUTE_IN_MILLISECONDS = 60 * 1000;
 const SECOND_IN_MILLISECONDS = 1000;
 
+const STORAGE_KEY = 'results';
+
 // "storage" functions
-/*const getResultsFromLocalStorage = () => {
-  const resultData = JSON.parse(localStorage.getItem(resultData)) || [];
+const getResultsFromLocalStorage = () => {
+  const resultData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
   return resultData;
-}; */
+}; 
 
 const storeResultInLocalStorage = () => {
-  let resultData = [];
-  let resultObj = {};
-      resultObj.startDate = startDate.value;
-      resultObj.endDate = endDate.value;
-      resultObj.result = result.textContent;
+  let resultData = getResultsFromLocalStorage();
 
-  resultData.push(resultObj);
-  localStorage.setItem(resultData, JSON.stringify(resultData));
-
-  if(exceedsLengthLimit(resultData)) {
+  if (resultData.length >= 10) {
     resultData.shift();
   }
-  function exceedsLengthLimit(resultData) {
-       let limitLength = 10;
-       let exceedsLimit = false;
-       if(resultData.length > limitLength) {
-           exceedsLimit = true;
-       }
-       return exceedsLimit;
-  }
-    
-  // Відображення даних у таблиці
-    let row;
-    resultData.forEach((obj) => {
-      row = document.createElement('tr'); 
-      row.innerHTML = 
-        `<td>${resultObj.startDate} - ${resultObj.endDate}</td>
-        <td>${resultObj.result}</td>`;
-      table.appendChild(row);
-    })
+
+  resultData.push({
+    startDate: startDate.value,
+    endDate: endDate.value,
+    result: result.textContent
+  });
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(resultData));
 };
 
+// Відображення даних у таблиці
+const renderHistoryTable = () => {
+  let resultData = getResultsFromLocalStorage();
+
+  resultData.forEach((obj) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `<td>${obj.startDate} - ${obj.endDate}</td>
+       <td>${obj.result}</td>`;
+    table.appendChild(row);
+  })
+};   
+ 
 // Формат кінцевої дати
 startDate.addEventListener('change', (event) => {
   endDate.removeAttribute('disabled');
@@ -148,6 +144,14 @@ count.addEventListener('click', () => {
 
 result.textContent = `Result: ${durationBetweenDates()}`;
 storeResultInLocalStorage();
+
+if (table.rows.length > 1){
+  for (let i = table.rows.length; i = 1; i--) {
+    table.deleteRow(i);
+  };
+};
+
+renderHistoryTable();
 })
 
 
