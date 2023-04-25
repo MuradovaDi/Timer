@@ -25,6 +25,24 @@ const getResultsFromLocalStorage = () => {
   return resultData;
 }; 
 
+// Відображення даних у таблиці
+const renderHistoryTable = () => {
+  let resultData = getResultsFromLocalStorage();
+
+  table.innerHTML = "";
+
+  resultData.forEach((obj) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `<td>${obj.startDate} - ${obj.endDate}</td>
+       <td>${obj.result}</td>`;
+    table.appendChild(row);
+  })
+}; 
+
+if (localStorage.getItem(STORAGE_KEY) !== null) {
+  renderHistoryTable();
+}
+
 const storeResultInLocalStorage = () => {
   let resultData = getResultsFromLocalStorage();
 
@@ -40,18 +58,6 @@ const storeResultInLocalStorage = () => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(resultData));
 };
 
-// Відображення даних у таблиці
-const renderHistoryTable = () => {
-  let resultData = getResultsFromLocalStorage();
-
-  resultData.forEach((obj) => {
-    const row = document.createElement('tr');
-    row.innerHTML = `<td>${obj.startDate} - ${obj.endDate}</td>
-       <td>${obj.result}</td>`;
-    table.appendChild(row);
-  })
-};   
- 
 // Формат кінцевої дати
 startDate.addEventListener('change', (event) => {
   endDate.removeAttribute('disabled');
@@ -65,16 +71,16 @@ endDate.addEventListener('change', (event) => {
 
 // Presets
 presetWeek.addEventListener('click', () => {
-  let setWeekDate = new Date(startDate.value);
-  setWeekDate.setDate(setWeekDate.getDate() + 7);
-  endDate.valueAsDate = setWeekDate;
+  let weekPreset = new Date(startDate.value);
+  weekPreset.setDate(weekPreset.getDate() + 7);
+  endDate.valueAsDate = weekPreset;
   count.disabled = false;
 })
 
 presetMonth.addEventListener('click', () => {
-  let setMonthDate = new Date(startDate.value);
-  setMonthDate.setMonth(setMonthDate.getMonth() + 1);
-  endDate.valueAsDate = setMonthDate;
+  let monthPreset = new Date(startDate.value);
+  monthPreset.setMonth(monthPreset.getMonth() + 1);
+  endDate.valueAsDate = monthPreset;
   count.disabled = false;
 })
 
@@ -144,8 +150,6 @@ count.addEventListener('click', () => {
 
 result.textContent = `Result: ${durationBetweenDates()}`;
 storeResultInLocalStorage();
-
-
 
 renderHistoryTable();
 })

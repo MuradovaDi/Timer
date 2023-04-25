@@ -1,10 +1,12 @@
 body{
     padding: 0;
     margin: 0;
-    background: url(./img/2erXIUXCoKQCCojhM3qQPmqX59UM4Ft5CI0GkhMI.jpg);
+    background: url(https://hips.hearstapps.com/hmg-prod/images/alarm-clock-art-concept-1610485624.jpg?crop=0.776xw:0.796xh;0.138xw,0.0918xh&resize=1200:*);
     background-repeat: no-repeat;
     background-size: cover;
-    color: wheat;
+    background-position: 0px 0px;
+    background-color: rgb(165,225,226);
+    color: white;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -25,7 +27,7 @@ p{
 
 .form{
     background-color: rgba(0, 0, 0, 0.75);
-    border: 1px solid wheat; 
+    border: 1px solid white; 
     border-radius: 70px;
     padding: 15px 25px;
     margin-bottom: 25px;
@@ -63,7 +65,7 @@ input, select{
     font-weight: 600;
     margin-top: 15px;
     padding: 5px 25px;
-    background: linear-gradient(0deg, #f8fa6a -15.69%, #d5d819 127.45%);
+    background: linear-gradient(0deg, #fa6afa -15.69%, #ec3e8f 127.45%);
     filter: drop-shadow(1px 1px 2px #B5C7E5);
 }
 
@@ -97,6 +99,20 @@ select option{
 
 .result{
     align-self: flex-start;
+}
+
+.table{
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 70px;
+}
+
+.table-header th:nth-child(1) {
+    width: 80%;
+}
+  
+.table-header  th:nth-child(2) {
+  width: 20%;
 }
 
 
